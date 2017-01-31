@@ -3,7 +3,7 @@
   "version": "1.0.0",
   "description": "XP. Unit testing. Test Smells",
   "scripts": {
-    "test": "node_modules/mocha/bin/mocha --ui tdd -R spec tests/*.js"
+    "test": "mocha --ui tdd -R spec tests/*.js"
   },
   "repository": {
     "type": "git",
