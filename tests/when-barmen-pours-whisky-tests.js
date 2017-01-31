@@ -24,19 +24,21 @@ suite('when barmen pours whisky', function () {
     });
 
     suite('i ask 50 grams', function () {
-        test('I get and drink whisky', function (done) {
 
-            var iAskVolume = 50;
-            var whisky = "whisky.jpg";
-
-            var volumeInGlass = barmen.pour(whisky, iAskVolume);
-            me.drink(volumeInGlass);
+        var whisky = "whisky.jpg";
+        var iAskVolume = 50;
+        var volumeInGlass = barmen.pour(whisky, iAskVolume);
+        test('I get whisky', function (done) {
 
             assert.equal(iAskVolume, volumeInGlass);
 
             done();
 
         });
+        test('I drink whisky', function(){
+            var iDrinkVolume = me.drink(volumeInGlass);
+            assert.equal(iDrinkVolume, volumeInGlass);
+        })
     });
 
     suite('i ask -10 grams', function () {
