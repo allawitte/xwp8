@@ -38,8 +38,6 @@ suite('when barmen pours whisky', function () {
                 me.drink(volumeInGlass);
 
                 assert.equal(iAskVolume, volumeInGlass);
-                assert.equal(false, me.isDrunk());
-                assert.equal(50, me.getTotallyDrunk());
 
                 done();
             });
