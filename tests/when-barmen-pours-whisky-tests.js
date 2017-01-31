@@ -9,7 +9,7 @@ var username = require('username');
 suite('when barmen pours whisky', function () {
     let barmen = new Barmen();
     let me = new Visitor();
-    let imageDownloader = new ImageDownloader();
+    var whisky = "whisky.jpg";
 
     setup(function (done) {
         this.timeout(20000);
@@ -25,7 +25,7 @@ suite('when barmen pours whisky', function () {
 
     suite('i ask 50 grams', function () {
 
-        var whisky = "whisky.jpg";
+
         var iAskVolume = 50;
         var volumeInGlass = barmen.pour(whisky, iAskVolume);
         test('I get whisky', function (done) {
@@ -45,7 +45,6 @@ suite('when barmen pours whisky', function () {
         test("I can't ask barmen poor negative amount of whisky", function (done) {
 
             var iAskVolume = -10;
-            var whisky = "whisky.jpg";
 
             expect(() => barmen.pour(whisky, iAskVolume)).to.throw(/Invalid volume of whisky/);
             done();
@@ -57,7 +56,6 @@ suite('when barmen pours whisky', function () {
         test('Barmen said there is no such glass', function (done) {
 
             var iAskVolume = 500;
-            var whisky = 1;
 
             expect(() => barmen.pour(whisky, iAskVolume)).to.throw(/There is no such glass/);
             done();
