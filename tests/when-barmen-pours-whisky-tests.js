@@ -12,18 +12,15 @@ suite('when barmen pours whisky', function () {
     var whisky = "whisky.jpg";
 
     setup(function (done) {
+
         this.timeout(20000);
         me.sober();
-
-
-
         barmen.free();
 
         done();
     });
 
     suite('i ask 50 grams', function () {
-
 
         var iAskVolume = 50;
         var volumeInGlass = barmen.pour(whisky, iAskVolume);
@@ -41,7 +38,7 @@ suite('when barmen pours whisky', function () {
     });
 
     suite('i ask -10 grams', function () {
-        test("I can't ask barmen poor negative amount of whisky", function (done) {
+        test("I can't ask barmen pours negative amount of whisky", function (done) {
 
             var iAskVolume = -10;
 
@@ -57,6 +54,17 @@ suite('when barmen pours whisky', function () {
             var iAskVolume = 500;
 
             expect(() => barmen.pour(whisky, iAskVolume)).to.throw(/There is no such glass/);
+            done();
+        });
+
+    });
+
+    suite('i ask 199 grams', function () {
+        test('Barmen pours 199 grams ', function (done) {
+
+            var iAskVolume = 199;
+            var volumeInGlass = barmen.pour(whisky, iAskVolume);
+            assert.equal(volumeInGlass, iAskVolume);
             done();
         });
 
