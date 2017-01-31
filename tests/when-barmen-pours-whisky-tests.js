@@ -16,8 +16,7 @@ suite('when barmen pours whisky', function () {
         me.sober();
 
 
-        var car = me.getMyCar("mycar.jpg");
-        me.goToBar(car);
+
         barmen.free();
 
         done();
