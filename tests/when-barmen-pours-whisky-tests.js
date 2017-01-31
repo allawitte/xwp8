@@ -27,10 +27,6 @@ suite('when barmen pours whisky', function () {
 
     suite('i ask 50 grams', function () {
         test('I get and drink whisky', function (done) {
-            fs.readFile('whisky.jpg', function (err, whisky) {
-                if (err) {
-                    done(err);
-                }
 
                 var iAskVolume = 50;
 
@@ -40,7 +36,7 @@ suite('when barmen pours whisky', function () {
                 assert.equal(iAskVolume, volumeInGlass);
 
                 done();
-            });
+
         });
     });
 
