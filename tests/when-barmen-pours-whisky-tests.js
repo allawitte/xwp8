@@ -2,9 +2,6 @@ var assert = require('assert');
 var expect = require('chai').expect;
 var Barmen = require('../src/barmen');
 var Visitor = require('../src/visitor');
-var ImageDownloader = require('../src/image-downloader');
-var fs = require('fs');
-var username = require('username');
 
 suite('when barmen pours whisky', function () {
     let barmen = new Barmen();
@@ -13,7 +10,6 @@ suite('when barmen pours whisky', function () {
 
     setup(function (done) {
 
-        this.timeout(20000);
         me.sober();
         barmen.free();
 
