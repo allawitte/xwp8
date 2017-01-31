@@ -15,20 +15,21 @@ suite('when barmen pours whisky', function () {
         this.timeout(20000);
         me.sober();
 
-        imageDownloader.download('http://www.rosa-obs.com/images/ccd/M31_karel_full.jpg',
-            'mycar.jpg', function () {
+        // imageDownloader.download('http://www.rosa-obs.com/images/ccd/M31_karel_full.jpg',
+        //     'mycar.jpg', function () {
                 var car = me.getMyCar("mycar.jpg");
                 me.goToBar(car);
                 barmen.free();
 
                 done();
-            });
+            //});
     });
 
     suite('i ask 50 grams', function () {
         test('I get and drink whisky', function (done) {
 
                 var iAskVolume = 50;
+                var whisky = "whisky.jpg";
 
                 var volumeInGlass = barmen.pour(whisky, iAskVolume);
                 me.drink(volumeInGlass);
@@ -40,20 +41,20 @@ suite('when barmen pours whisky', function () {
         });
     });
 
-    suite('i ask -10 grams', function () {
-        test('I get an error', function (done) {
-            fs.readFile('whisky.jpg', function (err, whisky) {
-                if (err) {
-                    done(err);
-                }
-
-                var iAskVolume = -10;
-
-                expect(() => barmen.pour(whisky, iAskVolume)).to.throw(/Invalid volume of whisky/);
-                done();
-            });
-        });
-    });
+    // suite('i ask -10 grams', function () {
+    //     test("I can't ask barmen poor negative amount of whisky", function (done) {
+    //         fs.readFile('whisky.jpg', function (err, whisky) {
+    //             if (err) {
+    //                 done(err);
+    //             }
+    //
+    //             var iAskVolume = -10;
+    //
+    //             expect(() => barmen.pour(whisky, iAskVolume)).to.throw(/Invalid volume of whisky/);
+    //             done();
+    //         });
+    //     });
+    // });
 
     suite('i ask 500 grams', function () {
         test('Barmen said there is no such glass', function (done) {
